@@ -1,4 +1,4 @@
-# Grand Royale Hotel Reservation Management System
+# Hotel Reservation Management System
 
 A premium, fully-functional **GUI-based Java Desktop Application** for hotel reservation and billing management. The application is styled programmatically with a sleek dark-slate theme and amber-gold highlights — **zero CSS files, zero FXML files**. All layouts, components, and styling are defined entirely in Java.
 
@@ -19,7 +19,7 @@ This project demonstrates a strong understanding of **Object-Oriented Programmin
 
 ---
 
-## 🛠️ Key Features
+##  Key Features
 
 1. **Secure Login** — Credential validation against the embedded SQLite database.
 2. **Room Management** — Add, update, and delete rooms (Standard / Deluxe / Suite) with badge status display.
@@ -33,7 +33,7 @@ This project demonstrates a strong understanding of **Object-Oriented Programmin
 
 ---
 
-## 🧬 OOP Concepts Demonstrated
+##  OOP Concepts Demonstrated
 
 ### A. Abstraction
 - **`Person`** (Abstract Class): Abstract `getDetails()` method implemented by subclasses.
@@ -55,7 +55,7 @@ This project demonstrates a strong understanding of **Object-Oriented Programmin
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 HotelReservationSystem/
@@ -91,7 +91,7 @@ HotelReservationSystem/
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Requirements
 - **JDK 17+** installed
