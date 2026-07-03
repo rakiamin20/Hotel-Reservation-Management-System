@@ -6,19 +6,6 @@ This project demonstrates a strong understanding of **Object-Oriented Programmin
 
 ---
 
-## 📸 Screenshots
-
-### 1. Staff Authentication Interface
-![Staff Login](screenshots/login.png)
-
-### 2. Dashboard Analytics & Active Check-Ins
-![Dashboard](screenshots/dashboard.png)
-
-### 3. Bookings & Real-Time Polymorphic Billing
-![Bookings](screenshots/booking.png)
-
----
-
 ##  Key Features
 
 1. **Secure Login** — Credential validation against the embedded SQLite database.
