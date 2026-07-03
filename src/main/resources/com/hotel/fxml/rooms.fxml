@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.controller.RoomController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+    <children>
+        
+        <!-- Left Side: Add/Edit Form -->
+        <VBox prefWidth="350.0" minWidth="350.0" spacing="20.0" style="-fx-background-color: #1e293b; -fx-background-radius: 16; -fx-padding: 24; -fx-border-color: #334155; -fx-border-width: 1; -fx-border-radius: 16;">
+            <children>
+                <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-font-weight: bold;" text="Room Details Form" />
+                
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Room Number" />
+                        <TextField fx:id="txtRoomNumber" promptText="e.g. 101, 204" styleClass="text-field" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Room Type" />
+                        <ComboBox fx:id="cmbRoomType" prefWidth="302.0" promptText="Select Type" styleClass="combo-box" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Base Rate ($ / Night)" />
+                        <TextField fx:id="txtBaseRate" promptText="e.g. 85.00" styleClass="text-field" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Current Status" />
+                        <ComboBox fx:id="cmbRoomStatus" prefWidth="302.0" promptText="Select Status" styleClass="combo-box" />
+                    </children>
+                </VBox>
+                
+                <Label fx:id="lblError" style="-fx-text-fill: #ef4444; -fx-font-weight: 500;" wrapText="true" />
+                <Label fx:id="lblSuccess" style="-fx-text-fill: #22c55e; -fx-font-weight: 500;" wrapText="true" />
+
+                <!-- Action Buttons -->
+                <VBox spacing="10.0">
+                    <children>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleSaveRoom" prefHeight="40.0" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="btn-primary" text="Save Room" />
+                                <Button fx:id="btnClear" mnemonicParsing="false" onAction="#handleClearForm" prefHeight="40.0" styleClass="btn-secondary" text="Clear" />
+                            </children>
+                        </HBox>
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleDeleteRoom" prefHeight="40.0" prefWidth="302.0" styleClass="btn-danger" text="Delete Room" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <!-- Right Side: Rooms Table View -->
+        <VBox HBox.hgrow="ALWAYS" spacing="15.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-font-weight: bold;" text="Room Registry" />
+                    </children>
+                </HBox>
+                
+                <TableView fx:id="tblRooms" VBox.vgrow="ALWAYS" onMouseClicked="#handleTableClick">
+                    <columns>
+                        <TableColumn fx:id="colRoomNumber" prefWidth="120.0" text="Room Number" />
+                        <TableColumn fx:id="colType" prefWidth="180.0" text="Room Type" />
+                        <TableColumn fx:id="colBaseRate" prefWidth="180.0" text="Base Rate ($ / Night)" />
+                        <TableColumn fx:id="colStatus" prefWidth="160.0" text="Status" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+        
+    </children>
+</HBox>

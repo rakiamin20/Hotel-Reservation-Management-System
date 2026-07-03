@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+
+<HBox prefHeight="768.0" prefWidth="1280.0" style="-fx-background-color: #0f172a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.controller.DashboardController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+    <children>
+        
+        <!-- Left Sidebar Navigation -->
+        <VBox alignment="TOP_CENTER" prefWidth="260.0" minWidth="260.0" maxWidth="260.0" styleClass="sidebar" spacing="10.0">
+            <children>
+                <!-- Brand Title Section -->
+                <VBox alignment="CENTER_LEFT" spacing="2.0" prefWidth="228.0">
+                    <children>
+                        <Label styleClass="brand-title" text="LEGON HILL HOTEL" style="-fx-font-size: 22px; -fx-padding: 0;"/>
+                        <Label style="-fx-text-fill: #d97706; -fx-font-weight: bold; -fx-font-size: 11px; -fx-text-transform: uppercase;" text="Luxury Reservation" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="40.0" top="10.0" left="10.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <!-- Navigation List -->
+                <Button fx:id="btnNavDashboard" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showDashboardView" prefHeight="45.0" prefWidth="230.0" styleClass="nav-button, nav-button-active" text="Dashboard">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Button>
+                
+                <Button fx:id="btnNavRooms" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showRoomsView" prefHeight="45.0" prefWidth="230.0" styleClass="nav-button" text="Room Management">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Button>
+                
+                <Button fx:id="btnNavGuests" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showGuestsView" prefHeight="45.0" prefWidth="230.0" styleClass="nav-button" text="Guest Directory">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Button>
+                
+                <Button fx:id="btnNavReservations" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#showReservationsView" prefHeight="45.0" prefWidth="230.0" styleClass="nav-button" text="Bookings &amp; Billings">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Button>
+                
+                <!-- Spacer to push Logout to bottom -->
+                <Region VBox.vgrow="ALWAYS" />
+                
+                <!-- Active Staff Info & Logout -->
+                <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color: rgba(255,255,255,0.03); -fx-background-radius: 8; -fx-padding: 12;">
+                    <children>
+                        <Label fx:id="lblUsername" text="Admin Staff" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                        <Label fx:id="lblUserRole" text="Administrator" style="-fx-text-fill: #64748b; -fx-font-size: 11px;" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </VBox>
+                
+                <Button fx:id="btnLogout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="230.0" styleClass="logout-button" text="Log Out">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Button>
+            </children>
+        </VBox>
+        
+        <!-- Right Main Workspace -->
+        <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #0f172a;">
+            <children>
+                <!-- Top Header Bar -->
+                <HBox alignment="CENTER_LEFT" styleClass="header-container">
+                    <children>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                            <children>
+                                <Label fx:id="lblHeaderTitle" styleClass="header-title" text="Dashboard Overview" />
+                                <Label fx:id="lblHeaderSubtitle" styleClass="header-subtitle" text="Welcome to Legon Hill Hotel administrative control center." />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                
+                <!-- Main Sub-view Content Frame -->
+                <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" style="-fx-padding: 30;">
+                    <!-- Views will load here dynamically -->
+                </StackPane>
+            </children>
+        </VBox>
+        
+    </children>
+</HBox>

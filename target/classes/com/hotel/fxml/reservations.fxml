@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.controller.ReservationController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+    <children>
+        
+        <!-- Left Side: Booking Form -->
+        <VBox prefWidth="360.0" minWidth="360.0" spacing="20.0" style="-fx-background-color: #1e293b; -fx-background-radius: 16; -fx-padding: 24; -fx-border-color: #334155; -fx-border-width: 1; -fx-border-radius: 16;">
+            <children>
+                <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-font-weight: bold;" text="New Reservation" />
+                
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Select Guest" />
+                        <ComboBox fx:id="cmbGuest" prefWidth="312.0" promptText="Choose Guest" styleClass="combo-box" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Select Room (Available Only)" />
+                        <ComboBox fx:id="cmbRoom" prefWidth="312.0" promptText="Choose Room" styleClass="combo-box" onAction="#handleRoomSelection" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Check-In Date" />
+                        <DatePicker fx:id="dpCheckIn" prefWidth="312.0" styleClass="date-picker" onAction="#handleDateSelection" />
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="form-label" text="Check-Out Date" />
+                        <DatePicker fx:id="dpCheckOut" prefWidth="312.0" styleClass="date-picker" onAction="#handleDateSelection" />
+                    </children>
+                </VBox>
+                
+                <!-- Pricing Breakout Panel -->
+                <VBox spacing="5.0" style="-fx-background-color: #0f172a; -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #334155; -fx-border-width: 1; -fx-border-radius: 10;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;" text="Daily Rate: " />
+                                <Label fx:id="lblDailyRate" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;" text="$0.00" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;" text="Duration: " />
+                                <Label fx:id="lblDuration" style="-fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 12px;" text="0 Nights" />
+                            </children>
+                        </HBox>
+                        <Label style="-fx-background-color: #334155; -fx-min-height: 1; -fx-max-height: 1; -fx-pref-height: 1; -fx-padding: 0;" prefWidth="280.0" />
+                        <HBox alignment="CENTER_LEFT" style="-fx-padding: 5 0 0 0;">
+                            <children>
+                                <Label style="-fx-text-fill: #fbbf24; -fx-font-weight: bold; -fx-font-size: 14px;" text="Estimated Total: " />
+                                <Label fx:id="lblEstimatedTotal" style="-fx-text-fill: #fbbf24; -fx-font-weight: 700; -fx-font-size: 16px;" text="$0.00" />
+                            </children>
+                        </HBox>
+                        <Label fx:id="lblFormulaHint" style="-fx-text-fill: #64748b; -fx-font-size: 10px;" text="" wrapText="true" />
+                    </children>
+                </VBox>
+                
+                <Label fx:id="lblError" style="-fx-text-fill: #ef4444; -fx-font-weight: 500;" wrapText="true" />
+                <Label fx:id="lblSuccess" style="-fx-text-fill: #22c55e; -fx-font-weight: 500;" wrapText="true" />
+
+                <!-- Action Button -->
+                <Button fx:id="btnBook" mnemonicParsing="false" onAction="#handleCreateBooking" prefHeight="40.0" prefWidth="312.0" styleClass="btn-primary" text="Confirm Booking" />
+            </children>
+        </VBox>
+
+        <!-- Right Side: Reservations Table View & Checkout Actions -->
+        <VBox HBox.hgrow="ALWAYS" spacing="15.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-font-weight: bold;" text="Reservation Log" />
+                    </children>
+                </HBox>
+                
+                <TableView fx:id="tblReservations" VBox.vgrow="ALWAYS" onMouseClicked="#handleTableClick">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="70.0" text="Res ID" />
+                        <TableColumn fx:id="colGuestName" prefWidth="160.0" text="Guest Name" />
+                        <TableColumn fx:id="colRoomNumber" prefWidth="90.0" text="Room" />
+                        <TableColumn fx:id="colRoomType" prefWidth="90.0" text="Type" />
+                        <TableColumn fx:id="colCheckIn" prefWidth="110.0" text="Check-In" />
+                        <TableColumn fx:id="colCheckOut" prefWidth="110.0" text="Check-Out" />
+                        <TableColumn fx:id="colPrice" prefWidth="100.0" text="Total Price" />
+                        <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+                    </columns>
+                </TableView>
+
+                <!-- Footer Quick Actions for Selected Booking -->
+                <HBox alignment="CENTER_RIGHT" spacing="15.0" style="-fx-background-color: #1e293b; -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: #334155; -fx-border-width: 1; -fx-border-radius: 12;">
+                    <children>
+                        <Label style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;" text="Selected Booking Actions:" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancelBooking" styleClass="btn-danger" text="Cancel Booking" />
+                        <Button fx:id="btnCheckout" mnemonicParsing="false" onAction="#handleCheckOut" styleClass="btn-primary" text="Complete Check-Out" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        
+    </children>
+</HBox>

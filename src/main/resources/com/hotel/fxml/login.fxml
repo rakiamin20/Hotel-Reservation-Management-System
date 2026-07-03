@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="login-bg" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.controller.LoginController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+    
+    <VBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <!-- Login Card Container -->
+            <VBox alignment="TOP_CENTER" maxWidth="400.0" prefWidth="400.0" spacing="20.0" styleClass="login-card">
+                <children>
+                    <!-- Brand Section -->
+                    <VBox alignment="CENTER" spacing="5.0">
+                        <children>
+                            <Label styleClass="brand-title" text="LEGON HILL HOTEL">
+                                <font>
+                                    <Font name="System Bold" size="24.0" />
+                                </font>
+                                <padding>
+                                    <Insets bottom="0.0" />
+                                </padding>
+                            </Label>
+                            <Label style="-fx-text-fill: #d97706; -fx-font-weight: bold; -fx-font-size: 12px; -fx-text-transform: uppercase;" text="RESERVATION MANAGEMENT SYSTEM" />
+                        </children>
+                    </VBox>
+                    
+                    <!-- Space -->
+                    <Label text="" prefHeight="10.0"/>
+
+                    <!-- Input Fields -->
+                    <VBox alignment="CENTER_LEFT" spacing="8.0">
+                        <children>
+                            <Label styleClass="form-label" text="Username" />
+                            <TextField fx:id="txtUsername" promptText="Enter your username" styleClass="text-field" prefHeight="40.0" />
+                        </children>
+                    </VBox>
+
+                    <VBox alignment="CENTER_LEFT" spacing="8.0">
+                        <children>
+                            <Label styleClass="form-label" text="Password" />
+                            <PasswordField fx:id="txtPassword" promptText="Enter your password" styleClass="text-field" prefHeight="40.0" />
+                        </children>
+                    </VBox>
+
+                    <!-- Error Alert Label -->
+                    <Label fx:id="lblError" style="-fx-text-fill: #ef4444; -fx-font-weight: 500; -fx-alignment: center;" wrapText="true" textAlignment="CENTER" />
+
+                    <!-- Submit Button -->
+                    <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="320.0" styleClass="btn-primary" text="Log In" />
+                    
+                    <Label style="-fx-text-fill: #64748b; -fx-font-size: 11px;" text="Secure Administrative Access Only" />
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+</AnchorPane>

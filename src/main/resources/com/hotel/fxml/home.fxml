@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.controller.HomeController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+    <children>
+        
+        <!-- Stats Row -->
+        <GridPane hgap="20.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25.0" />
+                <ColumnConstraints percentWidth="25.0" />
+                <ColumnConstraints percentWidth="25.0" />
+                <ColumnConstraints percentWidth="25.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <javafx.scene.layout.RowConstraints />
+            </rowConstraints>
+            <children>
+                
+                <!-- Stat Card 1 -->
+                <VBox spacing="10.0" styleClass="card" GridPane.columnIndex="0">
+                    <children>
+                        <Label styleClass="card-title" text="Total Rooms" />
+                        <Label fx:id="lblTotalRooms" styleClass="card-value" text="0" />
+                        <Label styleClass="card-subtext" text="Configured in System" style="-fx-text-fill: #94a3b8;" />
+                    </children>
+                </VBox>
+
+                <!-- Stat Card 2 -->
+                <VBox spacing="10.0" styleClass="card" GridPane.columnIndex="1">
+                    <children>
+                        <Label styleClass="card-title" text="Available Rooms" />
+                        <Label fx:id="lblAvailableRooms" styleClass="card-value" text="0" style="-fx-text-fill: #22c55e;" />
+                        <Label styleClass="card-subtext" text="Ready for Check-In" style="-fx-text-fill: #22c55e;" />
+                    </children>
+                </VBox>
+
+                <!-- Stat Card 3 -->
+                <VBox spacing="10.0" styleClass="card" GridPane.columnIndex="2">
+                    <children>
+                        <Label styleClass="card-title" text="Occupied Rooms" />
+                        <Label fx:id="lblOccupiedRooms" styleClass="card-value" text="0" style="-fx-text-fill: #ef4444;" />
+                        <Label styleClass="card-subtext" text="Currently booked" style="-fx-text-fill: #ef4444;" />
+                    </children>
+                </VBox>
+
+                <!-- Stat Card 4 -->
+                <VBox spacing="10.0" styleClass="card, card-gold" GridPane.columnIndex="3">
+                    <children>
+                        <Label styleClass="card-title" text="Total Revenue" style="-fx-text-fill: #fbbf24;" />
+                        <Label fx:id="lblTotalRevenue" styleClass="card-value" text="$0.00" style="-fx-text-fill: #fbbf24;" />
+                        <Label styleClass="card-subtext" text="Active earnings" />
+                    </children>
+                </VBox>
+                
+            </children>
+        </GridPane>
+
+        <!-- Recent Reservations Section -->
+        <VBox spacing="15.0" VBox.vgrow="ALWAYS" style="-fx-background-color: #1e293b; -fx-background-radius: 16; -fx-padding: 20; -fx-border-color: #334155; -fx-border-width: 1; -fx-border-radius: 16;">
+            <children>
+                <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-font-weight: bold;" text="Current Checked-In Guests" />
+                
+                <TableView fx:id="tblRecentReservations" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colResId" prefWidth="80.0" text="Res ID" />
+                        <TableColumn fx:id="colGuest" prefWidth="250.0" text="Guest Name" />
+                        <TableColumn fx:id="colRoom" prefWidth="120.0" text="Room No." />
+                        <TableColumn fx:id="colRoomType" prefWidth="120.0" text="Type" />
+                        <TableColumn fx:id="colCheckIn" prefWidth="160.0" text="Check-In" />
+                        <TableColumn fx:id="colCheckOut" prefWidth="160.0" text="Check-Out" />
+                        <TableColumn fx:id="colPrice" prefWidth="130.0" text="Total Cost" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+        
+    </children>
+</VBox>
